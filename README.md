@@ -83,3 +83,23 @@ If you find this repository helpful, please consider citing:
   year={2021}
 }
 ```
+
+# Challenge the excute
+ 1) Managing memory usage when training a model, than solve:
+```shell
+from torch.utils.checkpoint import checkpoint
+def forward(self, x):
+    x = checkpoint(self.transformer_block, x)
+    return x
+```
+ 2) Tuning model hyperparameters to optimize performance, than solve:
+```shell
+from sklearn.model_selection import GridSearchCV
+param_grid = {
+    'batch_size': [16, 32],
+    'learning_rate': [1e-4, 1e-5],
+    'num_layers': [6, 12],
+}
+grid_search = GridSearchCV(model, param_grid)
+grid_search.fit(train_data, train_labels)
+```
